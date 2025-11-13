@@ -1,0 +1,9 @@
+armgcc/debug/
+armgcc/CMakeFiles/
+armgcc/CMakeCache.txt
+armgcc/*.o
+armgcc/*.map
+config.cmake
+flags.cmake
+cmake_install.cmake
+build_log.txt
