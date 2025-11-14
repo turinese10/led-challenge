@@ -30,7 +30,7 @@
  * Prototypes
  ******************************************************************************/
 static void init_timer(void);
-static void LPTMR0_IRQHandler(void);
+void LPTMR0_IRQHandler(void);
 
 /*******************************************************************************
  * Code
@@ -63,7 +63,7 @@ static void init_timer(void) {
 /**
  * @breif LPTMR0 interrupt handler to toggle LED1 when the compare value is reached
  */
-static void LPTMR0_IRQHandler(void) {
+void LPTMR0_IRQHandler(void) {
     LPTMR_ClearStatusFlags(LPTMR0, kLPTMR_TimerCompareFlag);
     GPIO_PortToggle(BOARD_LED_RED_GPIO, 1u << BOARD_LED_RED_GPIO_PIN);
 }
