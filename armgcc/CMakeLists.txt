@@ -39,6 +39,7 @@ add_executable(${MCUX_SDK_PROJECT_NAME}
 "${ProjDirPath}/../board.h"
 "${ProjDirPath}/../clock_config.c"
 "${ProjDirPath}/../clock_config.h"
+"${SDK_ROOT}/devices/MK64F12/drivers/fsl_lptmr.c"
 )
 
 target_include_directories(${MCUX_SDK_PROJECT_NAME} PRIVATE

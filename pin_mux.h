@@ -37,12 +37,36 @@ void BOARD_InitBootPins(void);
 
 /* Symbols to be used with GPIO driver */
 #define BOARD_LED_RED_GPIO GPIOB                /*!<@brief GPIO peripheral base pointer */
+#define BOARD_LED_GREEN_GPIO GPIOE                /*!<@brief GPIO peripheral base pointer */
 #define BOARD_LED_RED_GPIO_PIN_MASK (1U << 22U) /*!<@brief GPIO pin mask */
+#define BOARD_LED_GREEN_GPIO_PIN_MASK (1U << 26U) /*!<@brief GPIO pin mask */
 
 /* Symbols to be used with PORT driver */
 #define BOARD_LED_RED_PORT PORTB                /*!<@brief PORT peripheral base pointer */
+#define BOARD_LED_GREEN_PORT PORTE                /*!<@brief PORT peripheral base pointer */
 #define BOARD_LED_RED_PIN 22U                   /*!<@brief PORT pin number */
+#define BOARD_LED_GREEN_PIN 26U                   /*!<@brief PORT pin number */
 #define BOARD_LED_RED_PIN_MASK (1U << 22U)      /*!<@brief PORT pin mask */
+#define BOARD_LED_GREEN_PIN_MASK (1U << 26U)      /*!<@brief PORT pin mask */
+
+#define SOPT5_UART0TXSRC_UART_TX 0x00u /*!<@brief UART 0 transmit data source select: UART0_TX pin */
+
+/*! @name PORTB16 (number 62), U7[4]/UART0_RX
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define BOARD_DEBUG_UART_RX_PORT PORTB                /*!<@brief PORT peripheral base pointer */
+#define BOARD_DEBUG_UART_RX_PIN 16U                   /*!<@brief PORT pin number */
+#define BOARD_DEBUG_UART_RX_PIN_MASK (1U << 16U)      /*!<@brief PORT pin mask */
+                                                      /* @} */
+
+/*! @name PORTB17 (number 63), U10[1]/UART0_TX
+  @{ */
+
+/* Symbols to be used with PORT driver */
+#define BOARD_DEBUG_UART_TX_PORT PORTB                /*!<@brief PORT peripheral base pointer */
+#define BOARD_DEBUG_UART_TX_PIN 17U                   /*!<@brief PORT pin number */
+#define BOARD_DEBUG_UART_TX_PIN_MASK (1U << 17U)      /*!<@brief PORT pin mask */
                                                 /* @} */
 
 /*!
