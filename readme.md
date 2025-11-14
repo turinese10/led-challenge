@@ -1,13 +1,22 @@
 # LED Challenge
 
 ## Overview
-This project demonstrates a timer-based LED toggle on the NXP FRDM-K64F board.  
-It is based on the **FRDM-K64F SDK LED blinky example**.
+This project demonstrates a timer-driven LED control application on the NXP FRDM-K64F board.
+It is derived from the **FRDM-K64F SDK LED blinky example**, but replaces the busy-wait loops with proper hardware timers and interrupt-driven scheduling
+
+Two independent LED patterns are implemented using a free-running LPTMR0:
+- LED1 (Red): Toggles every 65,000 timer counts via interrupt
+- LED2 (Green): Flashes 5 times every 3 seconds using software timing in the main loop
 
 ## Features
-- Uses **LPTMR0 timer interrupt** to toggle the LED instead of a busy-wait loop.  
-- Board initialization (`clock_config`, `pin_mux`, `board`) handled by SDK.  
-- Demonstrates proper use of peripherals, interrupts, and low-level hardware control.  
+- Board initialization (`clock_config`, `pin_mux`, `board`) handled by SDK.
+- Demonstrates proper use of peripherals, interrupts, and low-level hardware control.
+
+## Clock Config
+- Timer: LPTMR0
+- Clock Source: LPO (1 kHz)
+- Prescaler: Disabled (bypass enabled)
+- Mode: Free-running, 16-bit counter
 
 ## Dependencies
 - ARM GCC Toolchain (arm-none-eabi)
@@ -16,11 +25,17 @@ It is based on the **FRDM-K64F SDK LED blinky example**.
 - CMake
 
 ## Build Instructions
-1. Ensure sdk path environment variable is set properly 
+1. Set SDK path
 ```export SDK_PATH=/path/to/SDK```
-2. Change to build directory
+2. Enter the build directory
 ```cd armgcc```
 3. Build the project
 ```./build_debug.sh```
-4. Flash the binary 
+4. Flash the binary
 ```./flash.sh```
+
+## Debug
+Read debug UART console at:
+- Baud: 115200
+- 8-N-1, no flow control
+
